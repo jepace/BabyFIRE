@@ -1,25 +1,6 @@
 {
   "name": "babyfire",
-  "type": "javascript",
-  "env": {
-    "production": {
-      "name": "babyfire-prod",
-      "routes": [
-        {
-          "pattern": "babyfire.pages.dev",
-          "zone_id": "YOUR_ZONE_ID_HERE"
-        }
-      ],
-      "build": {
-        "upload": {
-          "format": "service-worker"
-        }
-      }
-    }
-  },
-  "observability": {
-    "enabled": true
-  },
-  "compatibility_date": "2024-01-01",
-  "account_id": "YOUR_ACCOUNT_ID_HERE"
+  "pages_build_caching": true,
+  "compatibility_date": "2024-01-01"
 }
+
