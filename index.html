@@ -227,6 +227,135 @@
             margin-bottom: 10px;
         }
 
+        .faq-button {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .faq-button:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            font-size: 2em;
+            color: #333;
+            margin: 0;
+        }
+
+        .close-btn {
+            font-size: 2em;
+            color: #999;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-question::before {
+            content: "▶";
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-question::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-answer {
+            display: none;
+            color: #555;
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-answer ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
+
+        .faq-answer strong {
+            color: #333;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
@@ -337,6 +466,158 @@
                     Your actual results may vary significantly. Past performance does not guarantee future results.
                     A 50-year projection involves substantial uncertainty. This tool is for educational purposes only
                     and should not be considered as professional financial advice. Always consult with a qualified financial advisor.
+                </div>
+
+                <button class="faq-button" onclick="openFAQ()">📖 Frequently Asked Questions</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="faqModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>babyFIRE FAQ</h2>
+                <button class="close-btn" onclick="closeFAQ()">&times;</button>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">Is this actually feasible?</div>
+                <div class="faq-answer">
+                    <p>Yes, completely. The math is sound based on historical market performance. Even at conservative estimates (7% real return), a $127,303 deposit will grow to approximately $3.75M over 50 years, which supports $150,000/year under the 4% Safe Withdrawal Rate. Market returns have historically averaged 8-10%, so you may be even more conservative than necessary.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">How do I prevent early withdrawals?</div>
+                <div class="faq-answer">
+                    <p>The primary tool is a <strong>trust</strong>. By working with an estate planning or elder law attorney, you can create a trust that:</p>
+                    <ul>
+                        <li>Controls when and how money can be accessed</li>
+                        <li>Restricts withdrawals to specific milestones (first home, age 30, etc.)</li>
+                        <li>Prevents access before a certain age</li>
+                        <li>Requires trustee approval for large withdrawals</li>
+                        <li>Protects the money from creditors and poor financial decisions</li>
+                    </ul>
+                    <p><strong>Important:</strong> Consult a qualified attorney in your state—rules vary significantly by jurisdiction.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">What are the tax implications?</div>
+                <div class="faq-answer">
+                    <p>This is complex and depends on your jurisdiction and how you structure the gift. Key considerations:</p>
+                    <ul>
+                        <li><strong>Gift tax:</strong> Gifts over the annual exclusion ($18,000 per person in 2024) may require gift tax returns</li>
+                        <li><strong>Financial aid:</strong> Assets in a minor's name can reduce eligibility for scholarships and grants</li>
+                        <li><strong>Kiddie tax:</strong> Unearned income on assets in a minor's name may be taxed at your rate above certain thresholds</li>
+                        <li><strong>State laws:</strong> Vary significantly; some states offer protective trust structures</li>
+                    </ul>
+                    <p><strong>Recommendation:</strong> Work with an estate planning attorney and a tax professional to structure this optimally for your situation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">Should I tell the beneficiary about the money?</div>
+                <div class="faq-answer">
+                    <p>This is one of the most important decisions you'll make. The consensus from financial professionals and experienced gift-givers:</p>
+                    <ul>
+                        <li><strong>Don't tell them until much later:</strong> Many recommend waiting until age 25-30 or even later</li>
+                        <li><strong>Why?</strong> Knowing about guaranteed retirement can reduce motivation to work hard, build resilience, and develop financial discipline</li>
+                        <li><strong>The risk:</strong> Generational wealth can lead to entitlement, lack of ambition, and poor life choices</li>
+                        <li><strong>The benefit:</strong> Letting them build their own career and life first, then revealing the gift later, preserves their drive and self-respect</li>
+                    </ul>
+                    <p>Consider disclosing it when they're making major life decisions (home purchase, starting a family, etc.) rather than in their 20s.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">What about education funding instead?</div>
+                <div class="faq-answer">
+                    <p>Many families choose to fund college through 529 plans instead, or in addition to retirement funding. Considerations:</p>
+                    <ul>
+                        <li><strong>College is more immediately useful:</strong> Eliminates student debt and career choice constraints in the 20s</li>
+                        <li><strong>Hybrid approach:</strong> Fund college through 529s, retire funding through a trust</li>
+                        <li><strong>Annual contributions:</strong> Smaller, regular gifts to parents can be more impactful now than a large inheritance later</li>
+                        <li><strong>Financial aid impact:</strong> 529s in a parent's name don't affect aid as severely as assets in the child's name</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">What if the money is needed for emergencies?</div>
+                <div class="faq-answer">
+                    <p>A well-designed trust can include flexibility for genuine hardship:</p>
+                    <ul>
+                        <li>Medical emergencies</li>
+                        <li>Business opportunities</li>
+                        <li>Home down payment</li>
+                        <li>Income disruption</li>
+                    </ul>
+                    <p>The key is working with your attorney to define what constitutes a legitimate withdrawal vs. frivolous spending. Consider naming a trustee (yourself, a family member, or a professional) who can exercise discretion.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">What about inflation?</div>
+                <div class="faq-answer">
+                    <p>This calculator already accounts for inflation through the "real rate of return" (investment return minus inflation rate).</p>
+                    <ul>
+                        <li><strong>Default:</strong> 10% return - 3% inflation = 7% real return</li>
+                        <li><strong>All income figures:</strong> Shown in "today's dollars" for purchasing power clarity</li>
+                        <li><strong>In 50 years:</strong> $150,000 in today's dollars will represent a much larger nominal amount, but with equivalent purchasing power</li>
+                    </ul>
+                    <p>If you expect different inflation, adjust the "Expected Annual Inflation Rate" slider in the calculator.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">What if I need the money later?</div>
+                <div class="faq-answer">
+                    <p>Money in a trust for a beneficiary is generally not available to you in retirement, but you have options:</p>
+                    <ul>
+                        <li><strong>Give yourself flexibility:</strong> Work with your attorney to ensure the trust doesn't over-commit money you might need</li>
+                        <li><strong>Annual exclusion gifts:</strong> Make annual tax-free gifts ($18,000/year per donor) rather than one large lump sum, preserving liquidity</li>
+                        <li><strong>Stagger contributions:</strong> Fund gradually over time rather than all at once</li>
+                        <li><strong>Document your intentions:</strong> Make sure your will and estate plan align with the trust</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">Should I tell other family members?</div>
+                <div class="faq-answer">
+                    <p>Privacy considerations:</p>
+                    <ul>
+                        <li><strong>Keep it quiet:</strong> The fewer people who know about the gift, the fewer complications arise</li>
+                        <li><strong>Tell the parents:</strong> Your children should know about gifts for their own children</li>
+                        <li><strong>Avoid comparison:</strong> If you're treating grandchildren differently, be mindful of family dynamics</li>
+                        <li><strong>Professional confidentiality:</strong> Your attorney and tax advisor should keep details private</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">What about grandkids of grandkids?</div>
+                <div class="faq-answer">
+                    <p>This is a consideration for generational wealth planning:</p>
+                    <ul>
+                        <li><strong>Dynasty trusts:</strong> Some states allow trusts that benefit multiple generations</li>
+                        <li><strong>Perpetual trusts:</strong> With proper planning, wealth can be set aside for great-grandchildren</li>
+                        <li><strong>Practical reality:</strong> Generational wealth often dissipates by the third generation due to consumption and poor decision-making</li>
+                        <li><strong>Focus on values:</strong> More important than creating a dynasty is instilling financial discipline and values across generations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">How do I get started?</div>
+                <div class="faq-answer">
+                    <p><strong>Step 1:</strong> Use this calculator to determine your target deposit amount</p>
+                    <p><strong>Step 2:</strong> Consult with an estate planning attorney in your state about trust structures and tax implications</p>
+                    <p><strong>Step 3:</strong> Talk to a financial advisor about investment strategy and account types</p>
+                    <p><strong>Step 4:</strong> Have conversations with your children about your intentions and values</p>
+                    <p><strong>Step 5:</strong> Set up the accounts/trusts and invest in a diversified, low-cost index fund portfolio</p>
+                    <p><strong>Step 6:</strong> Review periodically and adjust as needed</p>
                 </div>
             </div>
         </div>
@@ -527,6 +808,27 @@
 
         // Initial calculation
         calculate();
+
+        // FAQ Modal Functions
+        function openFAQ() {
+            document.getElementById('faqModal').style.display = 'block';
+        }
+
+        function closeFAQ() {
+            document.getElementById('faqModal').style.display = 'none';
+        }
+
+        function toggleFAQ(element) {
+            element.parentElement.classList.toggle('open');
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('faqModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
     </script>
 </body>
 </html>
