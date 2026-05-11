@@ -1,6 +1,6 @@
 # babyFIRE - Retirement Calculator
 
-> **Solving retirement on Day 1. Funding the future so they can live for the present.**
+> **Solving retirement on Day 1**
 
 ## Overview
 
