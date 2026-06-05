@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>babyFIRE - Retirement Calculator</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+        crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
@@ -469,6 +471,18 @@
                 </div>
 
                 <button class="faq-button" onclick="openFAQ()">📖 Frequently Asked Questions</button>
+
+                <div style="margin-top: 40px; text-align: center;">
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+                        data-ad-slot="0000000000"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
             </div>
         </div>
     </div>
@@ -828,7 +842,12 @@
             if (event.target === modal) {
                 modal.style.display = 'none';
             }
-        };
+        }
+
+        // Push new ad after DOM updates
+        if (typeof adsbygoogle !== 'undefined') {
+            adsbygoogle.push({});
+        }
     </script>
 </body>
 </html>

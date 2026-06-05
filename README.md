@@ -124,6 +124,19 @@ ruby -run -ehttpd . -p8000
 - **CSS3** — Modern styling with CSS Grid and Flexbox
 - **Vanilla JavaScript** — No dependencies for core calculations
 - **Chart.js** — Beautiful, responsive charts via CDN
+- **Google AdSense** — Optional monetization via ads
+
+## Google AdSense Setup
+
+The site includes Google AdSense integration. To enable ads:
+
+1. Sign up for [Google AdSense](https://www.google.com/adsense/)
+2. Once approved, replace the placeholder values in `index.html`:
+   - `ca-pub-xxxxxxxxxxxxxxxx` → Your publisher ID
+   - `data-ad-slot="0000000000"` → Your ad slot IDs
+3. Deploy and ads will appear automatically
+
+The ad units are placed non-intrusively below the main calculator content.
 
 ## File Structure
 
